@@ -59,4 +59,11 @@ class User extends Authenticatable {
     public function profile() {
         return $this->hasOne('App\Profile');
     }
+
+    /***
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions(){
+        return $this->hasMany('App\Question');
+    }
 }
