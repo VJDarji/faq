@@ -6,20 +6,20 @@
             <div class="col-md-8">
 
                 <div class="card">
-                    {!! Form::model($question, ['route' => ['questions.update','question'=>$question->id], 'method' => 'patch']) !!}
+                    {!! Form::model(null, ['route' => ['questions.store'], 'method' => 'post']) !!}
                     <div class="card-header">Question</div>
 
                     <div class="card-body">
                         <div class="form-group">
 
                             {!! Form::label('question', 'Question') !!}
-                            {!! Form::textarea('question', $question->question,['class' => 'form-control','required' => 'required']) !!}
+                            {!! Form::textarea('question', null,['class' => 'form-control','required' => 'required']) !!}
 
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="float-left">Last Updated: {{ $question->updated_at->diffForHumans() }} </span>
-                        <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Update Question
+                        <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Save
+                            Question
                         </button>
                         {!! Form::close() !!}
                     </div>
