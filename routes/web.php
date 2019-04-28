@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resources([
     'questions' => 'QuestionController',
 ]);
+
+Route::get('/profile','ProfileController@index')->middleware('auth')->name('profile');
+Route::get('/profile/form', 'ProfileController@profileForm')->middleware('auth')->name('profile.form');
+Route::post('/profile/create', 'ProfileController@create')->middleware('auth')->name('profile.create');
+Route::patch('/profile/edit', 'ProfileController@edit')->middleware('auth')->name('profile.edit');

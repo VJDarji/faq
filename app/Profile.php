@@ -35,4 +35,9 @@ class Profile extends Model {
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+
+    public function getFullNameAttribute() {
+        return "{$this->firstName} {$this->lastName}";
+    }
 }
