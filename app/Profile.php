@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Profile whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Profile whereUserId($value)
  * @mixin \Eloquent
+ * @property-read mixed $full_name
  */
 class Profile extends Model {
     /**

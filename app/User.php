@@ -28,6 +28,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \App\Profile $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Answer[] $answers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Question[] $questions
  */
 class User extends Authenticatable {
     use Notifiable;

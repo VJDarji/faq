@@ -27,3 +27,10 @@ Route::get('/profile','ProfileController@index')->middleware('auth')->name('prof
 Route::get('/profile/form', 'ProfileController@profileForm')->middleware('auth')->name('profile.form');
 Route::post('/profile/create', 'ProfileController@create')->middleware('auth')->name('profile.create');
 Route::patch('/profile/edit', 'ProfileController@edit')->middleware('auth')->name('profile.edit');
+
+Route::get('answer/{question}', 'AnswerController@create')->middleware('auth')->name('answer.create');
+Route::post('answer/{question}', 'AnswerController@store')->middleware('auth')->name('answer.store');
+Route::get('answer/{question}/show', 'AnswerController@show')->middleware('auth')->name('answer.show');
+Route::get('answer/{question}/edit', 'AnswerController@edit')->middleware('auth')->name('answer.edit');
+Route::patch('answer/{answer}/update', 'AnswerController@update')->middleware('auth')->name('answer.update');
+Route::delete('answer/{answer}/delete', 'AnswerController@delete')->middleware('auth')->name('answer.delete');

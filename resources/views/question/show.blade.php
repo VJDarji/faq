@@ -26,7 +26,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header"><a class="btn btn-primary float-left"
-                                                href="#">
+                                                href="{{route('answer.create',['question'=>$question->id])}}">
                             Answer Question
                         </a></div>
 
@@ -37,7 +37,7 @@
                                 <div class="card-footer">
                                     <span class="float-left">{{$answer->created_at->diffForHumans()}}</span>
                                     <a class="btn btn-primary float-right"
-                                       href="#">
+                                       href="{{route('answer.show',['question'=>$answer->id])}}">
                                         View
                                     </a>
 
