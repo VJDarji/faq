@@ -18,7 +18,7 @@
                                     <div class="card mb-3 ">
                                         <div class="card-header">
                                             <small class="text-muted">
-                                                Last Updated: {{ $question->created_at->diffForHumans() }}
+                                                Last Updated: {{ $question->updated_at->diffForHumans() }}
                                                 Number of Answers: {{ $question->answers()->count() }}
 
                                             </small>
