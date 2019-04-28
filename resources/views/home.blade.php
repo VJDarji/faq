@@ -13,7 +13,7 @@
                     <div class="card-body">
 
                         <div class="card-deck">
-                            @foreach($questions as $question)
+                            @forelse($questions as $question)
                                 <div class="col-sm-4 d-flex align-items-stretch">
                                     <div class="card mb-3 ">
                                         <div class="card-header">
@@ -29,14 +29,20 @@
                                         <div class="card-footer">
                                             <p class="card-text">
 
-                                                <a class="btn btn-primary float-right" href="{{ route('questions.show', ['id' => $question->id]) }}">
+                                                <a class="btn btn-primary float-right"
+                                                   href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                     View
                                                 </a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <div class="card">
+
+                                    <div class="card-body"> No Question created yet</div>
+                                </div>
+                            @endforelse
                         </div>
 
                     </div>
