@@ -19,7 +19,7 @@
                             <a class="btn btn-success" href="{{ route('questions.create')}}">
                                 Add Question
                             </a>
-                            <div>
+                            </div>
 
                             </div>
                     @endauth
