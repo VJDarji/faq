@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -22,10 +20,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $user=Auth::user();
-        $questions=$user->questions()->paginate(6);
-        return view('home')->with('questions',$questions);
+    public function index() {
+        $user = Auth::user();
+        $questions = $user->questions()
+                          ->with([
+                              'votes' => function ($query) use ($user) {
+                                  $query->where('user_id', '=', $user->id);
+                              }
+                          ])
+                          ->paginate(6);
+        return view('home')->with('questions', $questions);
     }
 }

@@ -20,7 +20,6 @@
                                             <small class="text-muted">
                                                 Last Updated: {{ $question->updated_at->diffForHumans() }}
                                                 Number of Answers: {{ $question->answers()->count() }}
-
                                             </small>
                                         </div>
                                         <div class="card-body">
@@ -28,7 +27,18 @@
                                         </div>
                                         <div class="card-footer">
                                             <p class="card-text">
-
+                                                @if($question->votes()->count() <1)
+                                                    <a class="btn btn-danger float-left"
+                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 1]) }}">
+                                                        Dislike
+                                                    </a>
+                                                    <a class="btn btn-success float-left"
+                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 0]) }}">
+                                                        Like
+                                                    </a>
+                                                @else
+                                                    <span>Already voted</span>
+                                                @endif
                                                 <a class="btn btn-primary float-right"
                                                    href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                     View

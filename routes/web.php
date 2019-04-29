@@ -34,3 +34,5 @@ Route::get('answer/{question}/show', 'AnswerController@show')->middleware('auth'
 Route::get('answer/{question}/edit', 'AnswerController@edit')->middleware('auth')->name('answer.edit');
 Route::patch('answer/{answer}/update', 'AnswerController@update')->middleware('auth')->name('answer.update');
 Route::delete('answer/{answer}/delete', 'AnswerController@delete')->middleware('auth')->name('answer.delete');
+
+Route::get('vote/{question}/{value}','VoteController@vote')->middleware('auth')->name('question.vote');
