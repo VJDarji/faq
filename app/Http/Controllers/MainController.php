@@ -10,7 +10,7 @@ class MainController extends Controller {
     public function index() {
         $questions = Question::latest()
                              ->paginate(6);
-        return view('welcome')->with('questions', $questions);
+        return view('welcome')->with('questions', $questions ?? null);
     }
 
     public function sort(Request $request) {
@@ -39,6 +39,6 @@ class MainController extends Controller {
                 ])->orderBy('votes_count', 'desc')->paginate(10);
                 break;
         }
-        return view('welcome')->with('questions', $questions);
+        return view('welcome')->with('questions', $questions ?? null);
     }
 }
