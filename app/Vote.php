@@ -12,4 +12,8 @@ class Vote extends Model {
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function getVoteAttribute($value) {
+        return $value ? 'liked' : 'disliked';
+    }
 }

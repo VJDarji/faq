@@ -29,15 +29,15 @@
                                             <p class="card-text">
                                                 @if($question->votes()->count() <1)
                                                     <a class="btn btn-danger float-left"
-                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 1]) }}">
+                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 0]) }}">
                                                         Dislike
                                                     </a>
                                                     <a class="btn btn-success float-left"
-                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 0]) }}">
+                                                       href="{{ route('question.vote', ['question'=>$question->id,'value' => 1]) }}">
                                                         Like
                                                     </a>
                                                 @else
-                                                    <span>Already voted</span>
+                                                    You have already {{$question->votes()->first()->vote}}
                                                 @endif
                                                 <a class="btn btn-primary float-right"
                                                    href="{{ route('questions.show', ['id' => $question->id]) }}">
