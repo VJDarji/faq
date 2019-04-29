@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index')->name('main');
+Route::post('/sort','MainController@sort')->name('main.sort');
 
 Auth::routes();
 
