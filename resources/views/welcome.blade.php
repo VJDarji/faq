@@ -34,6 +34,8 @@
                                             <small class="text-muted">
                                                 Last Updated: {{ $question->updated_at->diffForHumans() }}
                                                 Number of Answers: {{ $question->answers()->count() }}
+                                                Likes:{{$question->votes()->where('vote',true)->count()}}
+                                                Dislikes: {{$question->votes()->where('vote',false)->count()}}
                                             </small>
                                         </div>
                                         <div class="card-body">
